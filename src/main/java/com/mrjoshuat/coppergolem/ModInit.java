@@ -30,36 +30,36 @@ public class ModInit implements ModInitializer {
 
 	public static final EntityType<CopperGolemEntity> COPPER_GOLEM_ENTITY_TYPE = Registry.register(
 		Registry.ENTITY_TYPE,
-		new Identifier("minecraft", "copper_golem"),
+		new Identifier("fabric_copper_golem", "copper_golem"),
 		FabricEntityTypeBuilder.create(SpawnGroup.MISC, CopperGolemEntity::new).dimensions(EntityDimensions.fixed(0.75f, 1.15f)).build()
 	);
 
 	public static final Item COPPER_GOLEM_SPAWN_EGG = new SpawnEggItem(COPPER_GOLEM_ENTITY_TYPE,13136982, 	5805694, new Item.Settings().group(ItemGroup.MISC));
 
-	public static final Identifier COPPER_BUTTON_ID = new Identifier("minecraft", "copper_button");
-	public static final Identifier EXPOSED_COPPER_BUTTON_ID = new Identifier("minecraft", "exposed_copper_button");
-	public static final Identifier WEATHERED_COPPER_BUTTON_ID = new Identifier("minecraft", "weathered_copper_button");
-	public static final Identifier OXIDIZED_COPPER_BUTTON_ID = new Identifier("minecraft", "oxidized_copper_button");
+	public static final Identifier COPPER_BUTTON_ID = new Identifier("fabric_copper_golem", "copper_button");
+	public static final Identifier EXPOSED_COPPER_BUTTON_ID = new Identifier("fabric_copper_golem", "exposed_copper_button");
+	public static final Identifier WEATHERED_COPPER_BUTTON_ID = new Identifier("fabric_copper_golem", "weathered_copper_button");
+	public static final Identifier OXIDIZED_COPPER_BUTTON_ID = new Identifier("fabric_copper_golem", "oxidized_copper_button");
 
-	public static final Identifier WAXED_COPPER_BUTTON_ID = new Identifier("minecraft", "waxed_copper_button");
-	public static final Identifier WAXED_EXPOSED_COPPER_BUTTON_ID = new Identifier("minecraft", "waxed_exposed_copper_button");
-	public static final Identifier WAXED_WEATHERED_COPPER_BUTTON_ID = new Identifier("minecraft", "waxed_weathered_copper_button");
-	public static final Identifier WAXED_OXIDIZED_COPPER_BUTTON_ID = new Identifier("minecraft", "waxed_oxidized_copper_button");
+	public static final Identifier WAXED_COPPER_BUTTON_ID = new Identifier("fabric_copper_golem", "waxed_copper_button");
+	public static final Identifier WAXED_EXPOSED_COPPER_BUTTON_ID = new Identifier("fabric_copper_golem", "waxed_exposed_copper_button");
+	public static final Identifier WAXED_WEATHERED_COPPER_BUTTON_ID = new Identifier("fabric_copper_golem", "waxed_weathered_copper_button");
+	public static final Identifier WAXED_OXIDIZED_COPPER_BUTTON_ID = new Identifier("fabric_copper_golem", "waxed_oxidized_copper_button");
 
-	public static final Block COPPER_BUTTON = new OxidizableButtonBlock(Oxidizable.OxidationLevel.UNAFFECTED, buildButtonSettings(0));
-	public static final Block EXPOSED_COPPER_BUTTON = new OxidizableButtonBlock(Oxidizable.OxidationLevel.EXPOSED, buildButtonSettings(1));
-	public static final Block WEATHERED_COPPER_BUTTON = new OxidizableButtonBlock(Oxidizable.OxidationLevel.WEATHERED, buildButtonSettings(2));
-	public static final Block OXIDIZED_COPPER_BUTTON = new OxidizableButtonBlock(Oxidizable.OxidationLevel.OXIDIZED, buildButtonSettings(3));
+	public static final Block COPPER_BUTTON = new OxidizableButtonBlock(Oxidizable.OxidizationLevel.UNAFFECTED, buildButtonSettings(0));
+	public static final Block EXPOSED_COPPER_BUTTON = new OxidizableButtonBlock(Oxidizable.OxidizationLevel.EXPOSED, buildButtonSettings(1));
+	public static final Block WEATHERED_COPPER_BUTTON = new OxidizableButtonBlock(Oxidizable.OxidizationLevel.WEATHERED, buildButtonSettings(2));
+	public static final Block OXIDIZED_COPPER_BUTTON = new OxidizableButtonBlock(Oxidizable.OxidizationLevel.OXIDIZED, buildButtonSettings(3));
 
-	public static final Block WAXED_COPPER_BUTTON = new WaxedOxidizableButtonBlock(Oxidizable.OxidationLevel.UNAFFECTED, buildButtonSettings(0));
-	public static final Block WAXED_EXPOSED_COPPER_BUTTON = new WaxedOxidizableButtonBlock(Oxidizable.OxidationLevel.EXPOSED, buildButtonSettings(1));
-	public static final Block WAXED_WEATHERED_COPPER_BUTTON = new WaxedOxidizableButtonBlock(Oxidizable.OxidationLevel.WEATHERED, buildButtonSettings(2));
-	public static final Block WAXED_OXIDIZED_COPPER_BUTTON = new WaxedOxidizableButtonBlock(Oxidizable.OxidationLevel.OXIDIZED, buildButtonSettings(3));
+	public static final Block WAXED_COPPER_BUTTON = new WaxedOxidizableButtonBlock(Oxidizable.OxidizationLevel.UNAFFECTED, buildButtonSettings(0));
+	public static final Block WAXED_EXPOSED_COPPER_BUTTON = new WaxedOxidizableButtonBlock(Oxidizable.OxidizationLevel.EXPOSED, buildButtonSettings(1));
+	public static final Block WAXED_WEATHERED_COPPER_BUTTON = new WaxedOxidizableButtonBlock(Oxidizable.OxidizationLevel.WEATHERED, buildButtonSettings(2));
+	public static final Block WAXED_OXIDIZED_COPPER_BUTTON = new WaxedOxidizableButtonBlock(Oxidizable.OxidizationLevel.OXIDIZED, buildButtonSettings(3));
 
 	@Override
 	public void onInitialize() {
 		FabricDefaultAttributeRegistry.register(COPPER_GOLEM_ENTITY_TYPE, CopperGolemEntity.createMobAttributes());
-		Registry.register(Registry.ITEM, new Identifier("minecraft", "copper_golem_spawn_egg"), COPPER_GOLEM_SPAWN_EGG);
+		Registry.register(Registry.ITEM, new Identifier("fabric_copper_golem", "copper_golem_spawn_egg"), COPPER_GOLEM_SPAWN_EGG);
 
 		registerCopperButton(COPPER_BUTTON_ID, COPPER_BUTTON);
 		registerCopperButton(EXPOSED_COPPER_BUTTON_ID, EXPOSED_COPPER_BUTTON);

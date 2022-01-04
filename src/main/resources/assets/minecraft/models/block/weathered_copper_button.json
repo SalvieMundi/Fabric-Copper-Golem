@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/template_copper_button",
-  "textures": {
-    "texture": "block/weathered_copper"
-  }
-}

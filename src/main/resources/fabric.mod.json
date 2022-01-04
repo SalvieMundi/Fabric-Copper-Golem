@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "fabric-copper-golem",
+  "id": "fabric_copper_golem",
   "version": "${version}",
 
   "name": "Copper Golem",
@@ -32,8 +32,7 @@
 
   "depends": {
     "fabricloader": ">=0.11.7",
-    "fabric": ">=0.41.1",
-    "minecraft": "1.18.x",
-    "java": ">=17"
+    "fabric": ">=0.40.1",
+    "minecraft": "1.17.x"
   }
 }

@@ -1,5 +1,6 @@
 package com.mrjoshuat.coppergolem;
 
+import com.mrjoshuat.coppergolem.entity.CopperGolemEntity;
 import com.mrjoshuat.coppergolem.model.CopperGolemModel;
 import com.mrjoshuat.coppergolem.renderer.CopperGolemRenderer;
 
@@ -14,8 +15,8 @@ import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
 
 public class ClientMod implements ClientModInitializer {
-    public static final String ID = "fabric-copper-golem";
-    public static final EntityModelLayer MODEL_GOLEM_LAYER = new EntityModelLayer(new Identifier("minecraft", "copper_golem"), "copper_golem");
+    public static final String ID = "fabric_copper_golem";
+    public static final EntityModelLayer MODEL_GOLEM_LAYER = new EntityModelLayer(new Identifier("fabric_copper_golem", "copper_golem"), "copper_golem");
 
     @Override
     public void onInitializeClient() {
@@ -25,7 +26,7 @@ public class ClientMod implements ClientModInitializer {
 
     private void registerCopperGolem() {
         EntityRendererRegistry.register(ModInit.COPPER_GOLEM_ENTITY_TYPE, (context) -> new CopperGolemRenderer(context,
-            new CopperGolemModel(context.getPart(ClientMod.MODEL_GOLEM_LAYER)), 0.5f));
+            new CopperGolemModel<CopperGolemEntity>(context.getPart(ClientMod.MODEL_GOLEM_LAYER)), 0.5f));
 
         EntityModelLayerRegistry.registerModelLayer(MODEL_GOLEM_LAYER, CopperGolemModel::getTexturedModelData);
     }

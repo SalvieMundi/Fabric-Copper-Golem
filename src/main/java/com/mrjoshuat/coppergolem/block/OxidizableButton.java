@@ -8,11 +8,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Degradable;
 import net.minecraft.block.Oxidizable;
+import net.minecraft.block.Oxidizable.OxidizationLevel;
 
 import java.util.Optional;
 import java.util.function.Supplier;
 
-public interface OxidizableButton extends Degradable<Oxidizable.OxidationLevel> {
+public interface OxidizableButton extends Degradable<OxidizationLevel> {
     Supplier<BiMap<Block, Block>> BUTTON_OXIDATION_LEVEL_INCREASES = Suppliers.memoize(() -> {
         BiMap<Block, Block> map = HashBiMap.create();
         map.put(ModInit.COPPER_BUTTON, ModInit.EXPOSED_COPPER_BUTTON);
@@ -20,18 +21,18 @@ public interface OxidizableButton extends Degradable<Oxidizable.OxidationLevel> 
         map.put(ModInit.WEATHERED_COPPER_BUTTON, ModInit.OXIDIZED_COPPER_BUTTON);
         return map;
     });
-    Supplier<BiMap<Block, Block>> BUTTON_OXIDATION_LEVEL_DECREASES = Suppliers.memoize(() -> ((BiMap)BUTTON_OXIDATION_LEVEL_INCREASES.get()).inverse());
+    Supplier<BiMap<Block, Block>> BUTTON_OXIDATION_LEVEL_DECREASES = Suppliers.memoize(() -> ((BiMap<Block, Block>)BUTTON_OXIDATION_LEVEL_INCREASES.get()).inverse());
 
     static Optional<Block> getDecreasedOxidationBlock(Block block) {
-        return Optional.ofNullable((Block)((BiMap) BUTTON_OXIDATION_LEVEL_DECREASES.get()).get(block));
+        return Optional.ofNullable((Block)((BiMap<Block, Block>) BUTTON_OXIDATION_LEVEL_DECREASES.get()).get(block));
     }
 
     static Block getUnaffectedOxidationBlock(Block block) {
         Block block2 = block;
 
-        for(Block block3 = (Block)((BiMap) BUTTON_OXIDATION_LEVEL_DECREASES.get()).get(block);
+        for(Block block3 = (Block)((BiMap<Block, Block>) BUTTON_OXIDATION_LEVEL_DECREASES.get()).get(block);
             block3 != null;
-            block3 = (Block)((BiMap) BUTTON_OXIDATION_LEVEL_DECREASES.get()).get(block3)) {
+            block3 = (Block)((BiMap<Block, Block>) BUTTON_OXIDATION_LEVEL_DECREASES.get()).get(block3)) {
             block2 = block3;
         }
 
@@ -45,7 +46,7 @@ public interface OxidizableButton extends Degradable<Oxidizable.OxidationLevel> 
     }
 
     static Optional<Block> getIncreasedOxidationBlock(Block block) {
-        return Optional.ofNullable((Block)((BiMap)BUTTON_OXIDATION_LEVEL_INCREASES.get()).get(block));
+        return Optional.ofNullable((Block)((BiMap<Block, Block>)BUTTON_OXIDATION_LEVEL_INCREASES.get()).get(block));
     }
 
     static BlockState getUnaffectedOxidationState(BlockState state) {
@@ -59,6 +60,6 @@ public interface OxidizableButton extends Degradable<Oxidizable.OxidationLevel> 
     }
 
     default float getDegradationChanceMultiplier() {
-        return this.getDegradationLevel() == Oxidizable.OxidationLevel.UNAFFECTED ? 0.75F : 1.0F;
+        return this.getDegradationLevel() == Oxidizable.OxidizationLevel.UNAFFECTED ? 0.75F : 1.0F;
     }
 }

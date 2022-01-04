@@ -15,7 +15,8 @@ public class CopperGolemModel<T extends CopperGolemEntity> extends SinglePartEnt
     private final ModelPart root;
     private final ModelPart body;
     private final ModelPart head;
-    private final ModelPart nose;
+    @SuppressWarnings("unused")
+	private final ModelPart nose;
     private final ModelPart leftLeg;
     private final ModelPart rightLeg;
     private final ModelPart leftArm;

@@ -20,9 +20,9 @@ public class HoneycombItemHandler {
         map.put(ModInit.OXIDIZED_COPPER_BUTTON, ModInit.WAXED_OXIDIZED_COPPER_BUTTON);
         return map;
     });
-    public static final Supplier<BiMap<Block, Block>> WAXED_TO_UNWAXED_BUTTON_BLOCKS = Suppliers.memoize(() -> ((BiMap)UNWAXED_TO_WAXED_BUTTON_BLOCKS.get()).inverse());
+    public static final Supplier<BiMap<Block, Block>> WAXED_TO_UNWAXED_BUTTON_BLOCKS = Suppliers.memoize(() -> ((BiMap<Block, Block>)UNWAXED_TO_WAXED_BUTTON_BLOCKS.get()).inverse());
 
     public static Optional<BlockState> getButtonWaxedState(BlockState state) {
-        return Optional.ofNullable((Block)((BiMap) HoneycombItemHandler.UNWAXED_TO_WAXED_BUTTON_BLOCKS.get()).get(state.getBlock())).map((block) -> block.getStateWithProperties(state));
+        return Optional.ofNullable((Block)((BiMap<Block, Block>) HoneycombItemHandler.UNWAXED_TO_WAXED_BUTTON_BLOCKS.get()).get(state.getBlock())).map((block) -> block.getStateWithProperties(state));
     }
 }

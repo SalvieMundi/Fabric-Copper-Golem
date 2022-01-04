@@ -43,7 +43,7 @@ public class AxeItemMixin {
     private Optional<BlockState> getButtonUnwaxedStateIfBlockNotPresent(Optional<BlockState> blockState) {
         if (blockState.isPresent())
             return blockState;
-        return Optional.ofNullable((Block)((BiMap) HoneycombItemHandler.WAXED_TO_UNWAXED_BUTTON_BLOCKS.get())
+        return Optional.ofNullable((Block)((BiMap<Block, Block>) HoneycombItemHandler.WAXED_TO_UNWAXED_BUTTON_BLOCKS.get())
             .get(lastBlockState.getBlock())).map((block) -> block.getStateWithProperties(lastBlockState));
     }
 }

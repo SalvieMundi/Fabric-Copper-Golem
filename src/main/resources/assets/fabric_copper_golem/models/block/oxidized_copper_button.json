@@ -1,0 +1,6 @@
+{
+  "parent": "fabric_copper_golem:block/template_copper_button",
+  "textures": {
+    "texture": "block/oxidized_copper"
+  }
+}

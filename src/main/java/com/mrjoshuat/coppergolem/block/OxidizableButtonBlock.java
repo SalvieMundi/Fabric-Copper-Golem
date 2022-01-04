@@ -1,6 +1,7 @@
 package com.mrjoshuat.coppergolem.block;
 
 import net.minecraft.block.*;
+import net.minecraft.block.Oxidizable.OxidizationLevel;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -15,9 +16,9 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class OxidizableButtonBlock extends AbstractButtonBlock implements OxidizableButton {
-    private final Oxidizable.OxidationLevel oxidizationLevel;
+    private final OxidizationLevel oxidizationLevel;
 
-    public OxidizableButtonBlock(Oxidizable.OxidationLevel oxidizationLevel, AbstractBlock.Settings settings) {
+    public OxidizableButtonBlock(OxidizationLevel oxidizationLevel, AbstractBlock.Settings settings) {
         super(false, settings);
         this.oxidizationLevel = oxidizationLevel;
     }
@@ -31,7 +32,7 @@ public class OxidizableButtonBlock extends AbstractButtonBlock implements Oxidiz
     }
 
     @Override
-    public Oxidizable.OxidationLevel getDegradationLevel() {
+    public OxidizationLevel getDegradationLevel() {
         return this.oxidizationLevel;
     }
 
@@ -61,7 +62,7 @@ public class OxidizableButtonBlock extends AbstractButtonBlock implements Oxidiz
         world.spawnEntity(itemEntity);
     }
 
-    public static int getRedstonePower(Oxidizable.OxidationLevel level) {
+    public static int getRedstonePower(OxidizationLevel level) {
         return 15 - (3 * switch (level) {
             case UNAFFECTED -> 0;
             case EXPOSED -> 1;

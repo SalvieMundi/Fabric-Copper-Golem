@@ -2,7 +2,7 @@ package com.mrjoshuat.coppergolem.block;
 
 import net.minecraft.block.AbstractButtonBlock;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Oxidizable;
+import net.minecraft.block.Oxidizable.OxidizationLevel;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -14,9 +14,9 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 public class WaxedOxidizableButtonBlock extends AbstractButtonBlock {
-    private Oxidizable.OxidationLevel level;
+    private OxidizationLevel level;
 
-    public WaxedOxidizableButtonBlock(Oxidizable.OxidationLevel level, Settings settings) {
+    public WaxedOxidizableButtonBlock(OxidizationLevel level, Settings settings) {
         super(false, settings);
         this.level = level;
     }

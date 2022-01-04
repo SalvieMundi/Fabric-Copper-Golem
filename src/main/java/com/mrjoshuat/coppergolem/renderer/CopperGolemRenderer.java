@@ -25,7 +25,7 @@ public class CopperGolemRenderer extends MobEntityRenderer<CopperGolemEntity, Co
             CopperGolemEntity.Oxidisation.OXIDIZED, new Identifier("textures/entity/copper_golem/copper_golem_3.png"));
     }
 
-    public CopperGolemRenderer(EntityRendererFactory.Context context, CopperGolemModel entityModel, float f) {
+    public CopperGolemRenderer(EntityRendererFactory.Context context, CopperGolemModel<CopperGolemEntity> entityModel, float f) {
         super(context, entityModel, f);
     }
 
